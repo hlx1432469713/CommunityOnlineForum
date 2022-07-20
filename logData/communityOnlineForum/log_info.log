@@ -1,0 +1,40 @@
+2022-07-20 21:39:21,132 INFO [main] c.h.c.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests on DESKTOP-9VDD8UD with PID 16948 (started by hp in D:\CommunityOnlineForum)
+2022-07-20 21:39:21,134 INFO [main] c.h.c.LoggerTests [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2022-07-20 21:39:22,683 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-20 21:39:22,686 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-07-20 21:39:22,704 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2022-07-20 21:39:22,712 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-20 21:39:22,713 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-07-20 21:39:22,716 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
+2022-07-20 21:39:22,732 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-20 21:39:22,734 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-07-20 21:39:22,750 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
+2022-07-20 21:39:23,567 INFO [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-20 21:39:25,434 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-20 21:39:25,576 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2022-07-20 21:39:29,041 INFO [main] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1208] Using default implementation for ThreadExecutor
+2022-07-20 21:39:29,062 INFO [main] o.q.c.SchedulerSignalerImpl [SchedulerSignalerImpl.java:61] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-07-20 21:39:29,063 INFO [main] o.q.c.QuartzScheduler [QuartzScheduler.java:229] Quartz Scheduler v.2.3.1 created.
+2022-07-20 21:39:29,064 INFO [main] o.q.s.RAMJobStore [RAMJobStore.java:155] RAMJobStore initialized.
+2022-07-20 21:39:29,065 INFO [main] o.q.c.QuartzScheduler [QuartzScheduler.java:294] Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-07-20 21:39:29,066 INFO [main] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1362] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-07-20 21:39:29,066 INFO [main] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1366] Quartz scheduler version: 2.3.1
+2022-07-20 21:39:29,066 INFO [main] o.q.c.QuartzScheduler [QuartzScheduler.java:2293] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4af081
+2022-07-20 21:39:29,251 INFO [main] o.s.b.a.e.w.EndpointLinksResolver [EndpointLinksResolver.java:58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-07-20 21:39:29,331 INFO [main] o.s.s.q.SchedulerFactoryBean [SchedulerFactoryBean.java:727] Starting Quartz Scheduler now
+2022-07-20 21:39:29,332 INFO [main] o.q.c.QuartzScheduler [QuartzScheduler.java:547] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-07-20 21:39:29,348 INFO [main] c.h.c.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 8.861 seconds (JVM running for 10.25)
+2022-07-20 21:39:29,686 INFO [main] c.h.c.LoggerTests [LoggerTests.java:22] info log
+2022-07-20 21:39:29,702 INFO [SpringContextShutdownHook] o.q.c.QuartzScheduler [QuartzScheduler.java:585] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-07-20 21:39:29,703 INFO [SpringContextShutdownHook] o.s.s.q.SchedulerFactoryBean [SchedulerFactoryBean.java:845] Shutting down Quartz Scheduler
+2022-07-20 21:39:29,704 INFO [SpringContextShutdownHook] o.q.c.QuartzScheduler [QuartzScheduler.java:666] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2022-07-20 21:39:29,704 INFO [SpringContextShutdownHook] o.q.c.QuartzScheduler [QuartzScheduler.java:585] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-07-20 21:39:29,705 INFO [SpringContextShutdownHook] o.q.c.QuartzScheduler [QuartzScheduler.java:740] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2022-07-20 21:39:29,742 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
