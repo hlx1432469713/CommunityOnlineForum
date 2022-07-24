@@ -39,7 +39,7 @@ public class MailClient {
             mimeMessageHelper.setFrom(from);
             mimeMessageHelper.setTo(to);
             mimeMessageHelper.setSubject(subject);
-            mimeMessageHelper.setText(content);
+            mimeMessageHelper.setText(content,true);
             javaMailSender.send(mimeMessageHelper.getMimeMessage());
             logger.info("邮件发送成功！");
         } catch (MessagingException e) {
