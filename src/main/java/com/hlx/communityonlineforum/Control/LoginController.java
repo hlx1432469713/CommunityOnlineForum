@@ -1,8 +1,10 @@
 package com.hlx.communityonlineforum.Control;
 
+import com.google.code.kaptcha.Producer;
 import com.hlx.communityonlineforum.Entity.User;
 import com.hlx.communityonlineforum.Service.UserService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
+import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Map;
 
 @Controller
@@ -20,6 +28,9 @@ public class LoginController implements CommunityOnlineForumConstant {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private Producer producer;
 
     @RequestMapping(path = "/register" , method = RequestMethod.GET)
     public String getRegister(){
@@ -60,5 +71,23 @@ public class LoginController implements CommunityOnlineForumConstant {
             model.addAttribute("target", "/index");
         }
         return "/site/operate-result";
+    }
+
+    @RequestMapping(path = "/kaptcha" , method = RequestMethod.GET)
+    public void getKaptchaImg(HttpServletResponse httpResponse, HttpSession httpSession){
+        // 生成验证码
+        String imgText = producer.createText();
+        BufferedImage image = producer.createImage(imgText);
+
+        // 将验证码存入session--在后面的登录验证请求中，可以获得该内容
+        httpSession.setAttribute("kaptcha", imgText);
+
+        httpResponse.setContentType("image/png");
+        try {
+            OutputStream os = httpResponse.getOutputStream();
+            ImageIO.write(image,"png",os);
+        } catch (IOException e) {
+            logger.error("响应验证码失败:" + e.getMessage());
+        }
     }
 }
