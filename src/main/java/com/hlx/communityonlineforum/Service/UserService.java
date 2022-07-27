@@ -180,7 +180,16 @@ public class UserService implements CommunityOnlineForumConstant {
         loginTicketMapper.updateStatus(ticket,1);
     }
 
+    /**
+     * 根据登录凭证 找到 登录凭证所对应的全部信息
+     * @param ticket
+     * @return
+     */
     public LoginTicket findLoginTicket(String ticket) {
         return loginTicketMapper.selectByTicket(ticket);
+    }
+
+    public int updateHeaderUrl(int userId, String headerUrl) {
+        return userMapper.updateHeader(userId, headerUrl);
     }
 }
