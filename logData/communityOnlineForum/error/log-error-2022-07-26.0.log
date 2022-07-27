@@ -1,0 +1,18 @@
+2022-07-26 21:04:28,124 ERROR [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java:40] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userService in com.hlx.communityonlineforum.Control.HomeController required a bean of type 'com.hlx.communityonlineforum.Service.UserService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.hlx.communityonlineforum.Service.UserService' in your configuration.
+
