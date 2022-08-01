@@ -1,6 +1,7 @@
 package com.hlx.communityonlineforum.Until;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hlx.communityonlineforum.Entity.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.DigestUtils;
 
@@ -49,7 +50,10 @@ public class CommunityUtil {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "zhangsan");
         map.put("age", 25);
-        System.out.println(getJSONString(0, "ok", map));
+        User user = new User();
+        user.setUsername("Dasdad");
+        map.put("user",user);
+        System.out.println(getJSONString(200, "ok", map));
     }
 
 }
