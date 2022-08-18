@@ -55,3 +55,53 @@
 2022-08-18 16:57:07,059 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
 2022-08-18 16:57:07,089 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
 2022-08-18 16:57:07,096 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2022-08-18 16:57:16,497 INFO [restartedMain] c.h.c.CommunityOnlineForumApplication [StartupInfoLogger.java:55] Starting CommunityOnlineForumApplication on DESKTOP-9VDD8UD with PID 43568 (D:\CommunityOnlineForum\target\classes started by hp in D:\CommunityOnlineForum)
+2022-08-18 16:57:16,501 INFO [restartedMain] c.h.c.CommunityOnlineForumApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2022-08-18 16:57:16,571 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-18 16:57:16,571 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-18 16:57:18,113 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-08-18 16:57:18,120 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-08-18 16:57:18,137 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2022-08-18 16:57:18,143 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-08-18 16:57:18,144 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-08-18 16:57:18,149 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 4ms. Found 0 repository interfaces.
+2022-08-18 16:57:18,163 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:244] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-08-18 16:57:18,165 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:126] Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-08-18 16:57:18,187 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:182] Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+2022-08-18 16:57:18,726 INFO [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-18 16:57:19,194 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8082 (http)
+2022-08-18 16:57:19,205 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8082"]
+2022-08-18 16:57:19,206 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-08-18 16:57:19,206 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-08-18 16:57:19,387 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-08-18 16:57:19,388 INFO [restartedMain] o.s.w.c.ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 2817 ms
+2022-08-18 16:57:21,784 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-18 16:57:21,872 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2022-08-18 16:57:22,547 INFO [restartedMain] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1208] Using default implementation for ThreadExecutor
+2022-08-18 16:57:22,574 INFO [restartedMain] o.q.c.SchedulerSignalerImpl [SchedulerSignalerImpl.java:61] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-08-18 16:57:22,575 INFO [restartedMain] o.q.c.QuartzScheduler [QuartzScheduler.java:229] Quartz Scheduler v.2.3.1 created.
+2022-08-18 16:57:22,576 INFO [restartedMain] o.q.s.RAMJobStore [RAMJobStore.java:155] RAMJobStore initialized.
+2022-08-18 16:57:22,577 INFO [restartedMain] o.q.c.QuartzScheduler [QuartzScheduler.java:294] Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-08-18 16:57:22,577 INFO [restartedMain] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1362] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-08-18 16:57:22,577 INFO [restartedMain] o.q.i.StdSchedulerFactory [StdSchedulerFactory.java:1366] Quartz scheduler version: 2.3.1
+2022-08-18 16:57:22,577 INFO [restartedMain] o.q.c.QuartzScheduler [QuartzScheduler.java:2293] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@f8a08d
+2022-08-18 16:57:22,622 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:57] LiveReload server is running on port 35729
+2022-08-18 16:57:22,627 INFO [restartedMain] o.s.b.a.e.w.EndpointLinksResolver [EndpointLinksResolver.java:58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-08-18 16:57:22,670 INFO [restartedMain] o.s.s.q.SchedulerFactoryBean [SchedulerFactoryBean.java:727] Starting Quartz Scheduler now
+2022-08-18 16:57:22,671 INFO [restartedMain] o.q.c.QuartzScheduler [QuartzScheduler.java:547] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-08-18 16:57:22,684 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8082"]
+2022-08-18 16:57:22,703 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8082 (http) with context path ''
+2022-08-18 16:57:22,707 INFO [restartedMain] c.h.c.CommunityOnlineForumApplication [StartupInfoLogger.java:61] Started CommunityOnlineForumApplication in 6.908 seconds (JVM running for 8.685)
+2022-08-18 16:57:47,741 INFO [http-nio-8082-exec-2] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 16:57:47,742 INFO [http-nio-8082-exec-2] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2022-08-18 16:57:47,784 INFO [http-nio-8082-exec-2] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 40 ms
+2022-08-18 16:57:47,940 INFO [http-nio-8082-exec-2] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-08-18 16:57:48,303 INFO [http-nio-8082-exec-2] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-08-18 17:03:21,587 INFO [http-nio-8082-exec-5] c.h.c.U.MailClient [MailClient.java:44] 邮件发送成功！
