@@ -2,6 +2,7 @@ package com.hlx.communityonlineforum.Control;
 
 import com.hlx.communityonlineforum.Annotation.LoginRequired;
 import com.hlx.communityonlineforum.Entity.User;
+import com.hlx.communityonlineforum.Service.LikeService;
 import com.hlx.communityonlineforum.Service.UserService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
 import com.hlx.communityonlineforum.Until.CommunityUtil;
@@ -44,6 +45,9 @@ public class UserController implements CommunityOnlineForumConstant {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private LikeService likeService;
 
     /**
      * 返回个人信息设置页面
@@ -108,5 +112,18 @@ public class UserController implements CommunityOnlineForumConstant {
         }catch (IOException e) {
             logger.error("读取头像失败: " + e.getMessage());
         }
+    }
+    // 个人主页
+    @RequestMapping(path = "/profile/{userId}", method = RequestMethod.GET)
+    public String profile(@PathVariable("userId") int userId,Model model){
+        User user = userService.findUserById(userId);
+        if (user == null)
+            throw new RuntimeException("该用户不存在!");
+        // 用户
+        model.addAttribute("user", user);
+
+        long likeCount = likeService.findUserLikeCount(userId);
+        model.addAttribute("likeCount",likeCount);
+        return "/site/profile";
     }
 }

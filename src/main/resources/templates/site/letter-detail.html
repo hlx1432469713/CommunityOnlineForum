@@ -117,7 +117,7 @@
 			<!-- 私信列表 -->
 			<ul class="list-unstyled mt-4">
 				<li class="media pb-3 pt-3 mb-2" th:each="map:${letters}" th:style="|${map.toUser==null?'':'display: flex;justify-content: flex-end'}|">
-					<a href="profile.html" th:if="${map.fromUser}!=null">
+					<a th:href="@{|/user/profile/${map.fromUser.id}|}" th:if="${map.fromUser}!=null">
 						<img th:src="${map.fromUser.headerUrl}" class="mr-4 rounded-circle user-header" alt="用户头像" >
 					</a>
 					<div class="toast show d-lg-block" role="alert" aria-live="assertive" aria-atomic="true">
@@ -134,7 +134,7 @@
 						<div class="toast-body" style="text-align: left" th:if="${map.fromUser}!=null" th:utext="${map.letter.content}">
 						</div>
 					</div>
-					<a href="profile.html" th:if="${map.toUser}!=null">
+					<a th:href="@{|/user/profile/${map.toUser.id}|}" th:if="${map.toUser}!=null">
 						<img style="margin-left: 20px" th:src="${map.toUser.headerUrl}" class="rounded-circle user-header" alt="用户头像" >
 					</a>
 				</li>
