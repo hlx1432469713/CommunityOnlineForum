@@ -1,7 +1,9 @@
 package com.hlx.communityonlineforum.Control;
 
+import com.hlx.communityonlineforum.Entity.Event;
 import com.hlx.communityonlineforum.Entity.Page;
 import com.hlx.communityonlineforum.Entity.User;
+import com.hlx.communityonlineforum.Event.EventProducer;
 import com.hlx.communityonlineforum.Service.FollowService;
 import com.hlx.communityonlineforum.Service.UserService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
@@ -32,6 +34,9 @@ public class FollowController implements CommunityOnlineForumConstant {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     /**
      * 关注用户
      * @param entityType
@@ -44,6 +49,15 @@ public class FollowController implements CommunityOnlineForumConstant {
         User user = hostHolder.getUser();
 
         followService.follow(user.getId(), entityType, entityId);
+
+        // 触发关注事件
+        Event event = new Event()
+                .setTopic(TOPIC_FOLLOW)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(entityType)
+                .setEntityId(entityId)
+                .setEntityUserId(entityId);
+        eventProducer.fireEvent(event);
 
         return CommunityUtil.getJSONString(0, "关注用户成功!");
     }

@@ -2,6 +2,10 @@ package com.hlx.communityonlineforum.Control;
 
 import com.hlx.communityonlineforum.Annotation.LoginRequired;
 import com.hlx.communityonlineforum.Entity.Comment;
+import com.hlx.communityonlineforum.Entity.DiscussPost;
+import com.hlx.communityonlineforum.Entity.Event;
+import com.hlx.communityonlineforum.Event.EventConsumer;
+import com.hlx.communityonlineforum.Event.EventProducer;
 import com.hlx.communityonlineforum.Service.CommentService;
 import com.hlx.communityonlineforum.Service.DiscussPostService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
@@ -26,6 +30,9 @@ public class CommentController implements CommunityOnlineForumConstant {
     @Autowired
     private DiscussPostService discussPostService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
 
     /**
      * 新增评论（对帖子的评论，对某人评论的评论）
@@ -40,6 +47,22 @@ public class CommentController implements CommunityOnlineForumConstant {
         comment.setStatus(0);
         comment.setCreateTime(new Date());
         commentService.addComment(comment);
+
+        // 触发评论事件
+        Event event = new Event()
+                .setTopic(TOPIC_COMMENT)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(comment.getEntityType())
+                .setEntityId(comment.getEntityId())
+                .setData("postId", discussPostId);
+        if (comment.getEntityType() == ENTITY_TYPE_POST) {
+            DiscussPost target = discussPostService.selectDiscussPostById(comment.getEntityId());
+            event.setEntityUserId(target.getUserId());
+        } else if (comment.getEntityType() == ENTITY_TYPE_COMMENT) {
+            Comment target = commentService.findCommentById(comment.getEntityId());
+            event.setEntityUserId(target.getUserId());
+        }
+        eventProducer.fireEvent(event);
 
         return "redirect:/discuss/detail/" + discussPostId;
     }

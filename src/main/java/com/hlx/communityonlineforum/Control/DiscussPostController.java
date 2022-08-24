@@ -1,9 +1,7 @@
 package com.hlx.communityonlineforum.Control;
 
-import com.hlx.communityonlineforum.Entity.Comment;
-import com.hlx.communityonlineforum.Entity.DiscussPost;
-import com.hlx.communityonlineforum.Entity.Page;
-import com.hlx.communityonlineforum.Entity.User;
+import com.hlx.communityonlineforum.Entity.*;
+import com.hlx.communityonlineforum.Event.EventProducer;
 import com.hlx.communityonlineforum.Service.CommentService;
 import com.hlx.communityonlineforum.Service.DiscussPostService;
 import com.hlx.communityonlineforum.Service.LikeService;
@@ -39,6 +37,9 @@ public class DiscussPostController implements CommunityOnlineForumConstant {
     @Autowired
     private LikeService likeService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     /**
      * 新增帖子
      * @param title
@@ -60,6 +61,14 @@ public class DiscussPostController implements CommunityOnlineForumConstant {
         discussPost.setCreateTime(new Date());
 
         discussPostService.addDiscussPost(discussPost);
+
+        // 触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(user.getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(discussPost.getId());
+        eventProducer.fireEvent(event);
 
         return CommunityUtil.getJSONString(200,"恭喜你，帖子发布成功!");
     }
