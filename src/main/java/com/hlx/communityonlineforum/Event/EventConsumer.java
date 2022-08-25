@@ -1,9 +1,11 @@
 package com.hlx.communityonlineforum.Event;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hlx.communityonlineforum.Entity.DiscussPost;
 import com.hlx.communityonlineforum.Entity.Event;
 import com.hlx.communityonlineforum.Entity.Message;
 import com.hlx.communityonlineforum.Service.DiscussPostService;
+import com.hlx.communityonlineforum.Service.ElasticsearchService;
 import com.hlx.communityonlineforum.Service.MessageService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -29,6 +31,9 @@ public class EventConsumer implements CommunityOnlineForumConstant {
 
     @Autowired
     private DiscussPostService discussPostService;
+
+    @Autowired
+    private ElasticsearchService elasticsearchService;
 
     @KafkaListener(topics = {TOPIC_COMMENT, TOPIC_LIKE, TOPIC_FOLLOW})
     public void handleCommentMessage(ConsumerRecord record) {
@@ -63,5 +68,23 @@ public class EventConsumer implements CommunityOnlineForumConstant {
         message.setContent(JSONObject.toJSONString(content));
         messageService.addMessage(message);
     }
+    // 消费发帖事件
+    @KafkaListener(topics = {TOPIC_PUBLISH})
+    public void handlePublishMessage(ConsumerRecord record) {
+        if (record == null || record.value() == null) {
+            logger.error("消息的内容为空!");
+            return;
+        }
+
+        Event event = JSONObject.parseObject(record.value().toString(), Event.class);
+        if (event == null) {
+            logger.error("消息格式错误!");
+            return;
+        }
+
+        DiscussPost post = discussPostService.selectDiscussPostById(event.getEntityId());
+        elasticsearchService.saveDiscussPost(post);
+    }
+
 
 }
