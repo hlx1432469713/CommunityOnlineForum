@@ -20,15 +20,15 @@ function like(btn, entityType, entityId, entityUserId, postId) {
     );
 }
 
-// 置顶
+// 置顶与取消置顶
 function setTop() {
     $.post(
         CONTEXT_PATH + "/discuss/top",
         {"id":$("#postId").val()},
         function(data) {
             data = $.parseJSON(data);
-            if(data.code == 0) {
-                $("#topBtn").attr("disabled", "disabled");
+            if(data.code == 200) {
+                $("#topBtn").text(data.type==1?'取消置顶':'置顶');
             } else {
                 alert(data.msg);
             }
@@ -36,15 +36,15 @@ function setTop() {
     );
 }
 
-// 加精
+// 加精与取消加精
 function setWonderful() {
     $.post(
         CONTEXT_PATH + "/discuss/wonderful",
         {"id":$("#postId").val()},
         function(data) {
             data = $.parseJSON(data);
-            if(data.code == 0) {
-                $("#wonderfulBtn").attr("disabled", "disabled");
+            if(data.code == 200) {
+                $("#wonderfulBtn").text(data.status==1?'取消加精':'加精');
             } else {
                 alert(data.msg);
             }
@@ -59,7 +59,7 @@ function setDelete() {
         {"id":$("#postId").val()},
         function(data) {
             data = $.parseJSON(data);
-            if(data.code == 0) {
+            if(data.code == 200) {
                 location.href = CONTEXT_PATH + "/index";
             } else {
                 alert(data.msg);
