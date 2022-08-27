@@ -9,7 +9,9 @@ import com.hlx.communityonlineforum.Service.UserService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
 import com.hlx.communityonlineforum.Until.CommunityUtil;
 import com.hlx.communityonlineforum.Until.HostHolder;
+import com.hlx.communityonlineforum.Until.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +42,9 @@ public class DiscussPostController implements CommunityOnlineForumConstant {
     @Autowired
     private EventProducer eventProducer;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     /**
      * 新增帖子
      * @param title
@@ -69,6 +74,9 @@ public class DiscussPostController implements CommunityOnlineForumConstant {
                 .setEntityType(ENTITY_TYPE_POST)
                 .setEntityId(discussPost.getId());
         eventProducer.fireEvent(event);
+        // 计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey,discussPost.getId());
 
         return CommunityUtil.getJSONString(200,"恭喜你，帖子发布成功!");
     }
@@ -201,7 +209,9 @@ public class DiscussPostController implements CommunityOnlineForumConstant {
                 .setEntityId(id);
         eventProducer.fireEvent(event);
 
-
+        // 计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, id);
 
         return CommunityUtil.getJSONString(200,null,map);
     }

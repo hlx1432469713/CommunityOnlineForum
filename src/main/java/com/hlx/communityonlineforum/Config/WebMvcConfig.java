@@ -1,5 +1,6 @@
 package com.hlx.communityonlineforum.Config;
 
+import com.hlx.communityonlineforum.Control.Interceptor.DataInterceptor;
 import com.hlx.communityonlineforum.Control.Interceptor.LoginInterceptor;
 import com.hlx.communityonlineforum.Control.Interceptor.LoginRequiredInterceptor;
 import com.hlx.communityonlineforum.Control.Interceptor.MessageInterceptor;
@@ -23,6 +24,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private MessageInterceptor messageInterceptor;
 
+    @Autowired
+    private DataInterceptor dataInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //添加登录拦截器，处理登录功能
@@ -33,6 +37,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
         registry.addInterceptor(messageInterceptor)
+                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
+
+        registry.addInterceptor(dataInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
     }
 }

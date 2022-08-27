@@ -7,6 +7,7 @@ import com.hlx.communityonlineforum.Service.LikeService;
 import com.hlx.communityonlineforum.Until.CommunityOnlineForumConstant;
 import com.hlx.communityonlineforum.Until.CommunityUtil;
 import com.hlx.communityonlineforum.Until.HostHolder;
+import com.hlx.communityonlineforum.Until.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class LikeController implements CommunityOnlineForumConstant {
 
     @Autowired
     private EventProducer eventProducer;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @RequestMapping(path = "/like", method = RequestMethod.POST)
     @ResponseBody
@@ -54,6 +58,12 @@ public class LikeController implements CommunityOnlineForumConstant {
                     .setEntityUserId(entityUserId)
                     .setData("postId", postId);
             eventProducer.fireEvent(event);
+        }
+
+        // 计算帖子分数
+        if(entityType == ENTITY_TYPE_POST) {
+            String redisKey = RedisKeyUtil.getPostScoreKey();
+            redisTemplate.opsForSet().add(redisKey, postId);
         }
         return CommunityUtil.getJSONString(200, "点赞成功！", map);
     }
