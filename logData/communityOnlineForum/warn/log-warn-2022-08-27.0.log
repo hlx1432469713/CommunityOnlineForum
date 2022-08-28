@@ -1,0 +1,4 @@
+2022-08-27 20:41:43,868 WARN [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [38E369BE70CC52E02A18B16912FE0EF5]
+2022-08-27 21:02:09,549 WARN [lettuce-timer-3-1] i.l.c.p.ConnectionWatchdog [Netty4InternalESLogger.java:135] Cannot execute scheduled reconnect timer, reconnect workers are terminated
+2022-08-27 21:03:18,707 WARN [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [489E38C495CA974DFD2D2BF200E79493]
+2022-08-27 21:03:23,768 WARN [restartedMain] o.s.s.q.LocalDataSourceJobStore [JobStoreSupport.java:3572] ClusterManager: failed job 'communityJobGroup.postScoreRefreshJob' no longer exists, cannot schedule recovery.
